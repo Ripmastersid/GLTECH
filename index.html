@@ -1,0 +1,1708 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+<!-- SEO -->
+<title>GL TECH Niterói | Manutenção de PCs, Notebooks e Montagem | Centro</title>
+<meta name="description" content="GL TECH Niterói - Especialistas em manutenção de computadores, notebooks, formatação, recuperação de dados e montagem de PCs. Atendimento no Centro. WhatsApp (21) 98886-4452"/>
+<meta name="keywords" content="manutenção de pc niterói, formatação notebook, montagem de pc, conserto computador centro niterói, recuperação de dados, gl tech"/>
+<meta name="author" content="GL TECH Niterói"/>
+<meta name="robots" content="index, follow"/>
+
+<!-- Open Graph -->
+<meta property="og:title" content="GL TECH Niterói | Manutenção e Montagem de PCs"/>
+<meta property="og:description" content="Especialistas em manutenção de computadores e notebooks no Centro de Niterói. Atendimento rápido e profissional."/>
+<meta property="og:type" content="website"/>
+<meta property="og:url" content="https://gltech.vip"/>
+<meta property="og:image" content="https://raw.githubusercontent.com/Ripmastersid/GLTECH/main/Techicon.png"/>
+
+<!-- Meta Pixel (placeholder) -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+// fbq('init', 'SEU_PIXEL_ID_AQUI');
+// fbq('track', 'PageView');
+</script>
+
+<!-- Favicon -->
+<link rel="icon" type="image/png" href="https://raw.githubusercontent.com/Ripmastersid/GLTECH/main/Techicon.png"/>
+
+<!-- Fonts -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/fontsource/css/chakra-petch@latest/latin-500-normal.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/fontsource/css/chakra-petch@latest/latin-700-normal.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/fontsource/css/space-grotesk@latest/latin-400-normal.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/fontsource/css/space-grotesk@latest/latin-500-normal.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/fontsource/css/ibm-plex-mono@latest/latin-400-normal.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/fontsource/css/ibm-plex-mono@latest/latin-600-normal.css">
+
+<style>
+:root{
+  --bg:#05080d; --ink:#e8f4fb; --mut:#8aa3b5;
+  --cy:#3ee6ff; --am:#ffb454; --mg:#ff5c8a; --gn:#3ddc84; --tf:#2dd4bf; --lv:#d4a5ff;
+  --line:rgba(120,220,255,.16); --panel:rgba(7,13,20,.9);
+  --disp:"Chakra Petch",sans-serif; --body:"Space Grotesk",sans-serif; --mono:"IBM Plex Mono",monospace;
+  --whatsapp:#25D366;
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);overflow-x:hidden}
+
+/* ========== HERO STYLES (mantidos) ========== */
+#scene{position:fixed;inset:0;cursor:grab;z-index:1}
+body.dragging #scene{cursor:grabbing}
+#scene canvas{display:block}
+
+.hud{position:fixed;inset:0;pointer-events:none;user-select:none;z-index:5}
+.panel{
+  background:var(--panel);border:1px solid var(--line);position:relative;
+  clip-path:polygon(0 0,calc(100% - 14px) 0,100% 14px,100% 100%,14px 100%,0 calc(100% - 14px));
+}
+.panel::before{content:"";position:absolute;top:0;left:0;width:46%;height:2px;
+  background:linear-gradient(90deg,var(--cy),transparent)}
+
+.brand{position:absolute;top:18px;left:18px;padding:16px 20px 15px;max-width:430px}
+.eyebrow{font-family:var(--mono);font-size:10px;letter-spacing:3px;color:var(--cy);opacity:.9}
+.brand h1{font-family:var(--disp);font-weight:700;font-size:clamp(26px,3.4vw,42px);
+  letter-spacing:.5px;line-height:1.05;margin:6px 0 7px}
+.brand h1 .x{color:var(--mg);padding:0 6px;font-size:.75em;vertical-align:.12em}
+.brand h1 .t2{color:var(--cy);text-shadow:0 0 22px rgba(62,230,255,.55)}
+.brand p{font-size:12.5px;line-height:1.55;color:var(--mut)}
+
+.stats{position:absolute;top:18px;right:18px;padding:14px 16px;display:grid;grid-template-columns:repeat(2,minmax(120px,150px));gap:12px 22px}
+.stat label{display:block;font-family:var(--mono);font-size:9.5px;letter-spacing:2px;color:var(--mut)}
+.stat b{display:block;font-family:var(--mono);font-weight:600;font-size:22px;color:var(--ink);margin:3px 0 5px}
+.stat b small{font-size:11px;color:var(--mut);font-weight:400}
+.sbar{height:3px;background:rgba(120,200,255,.12)}
+.sbar div{height:100%;width:40%;background:var(--cy);transition:width .25s;box-shadow:0 0 8px var(--cy)}
+.stat:nth-child(2) .sbar div{background:var(--am);box-shadow:0 0 8px var(--am)}
+.stat:nth-child(3) .sbar div{background:var(--mg);box-shadow:0 0 8px var(--mg)}
+.stat:nth-child(4) .sbar div{background:var(--gn);box-shadow:0 0 8px var(--gn)}
+
+.zoommod{position:absolute;left:18px;bottom:18px;padding:15px 18px 16px;width:330px}
+.zm-head{display:flex;justify-content:space-between;align-items:center;gap:10px}
+.zm-head span:first-child{font-family:var(--mono);font-size:10px;letter-spacing:2.5px;color:var(--mut)}
+.lvl-chip{font-family:var(--disp);font-weight:700;font-size:10.5px;letter-spacing:1.5px;color:#04121a;
+  background:var(--cy);padding:4px 9px;clip-path:polygon(6px 0,100% 0,100% 100%,0 100%,0 6px);transition:background .3s}
+.lvl-chip.l1{background:var(--gn)} .lvl-chip.l2{background:var(--am)} .lvl-chip.l3{background:var(--mg)}
+.zm-num{display:flex;align-items:baseline;gap:4px;margin:6px 0 8px}
+.zm-num span{font-family:var(--mono);font-weight:600;font-size:clamp(46px,5.4vw,68px);line-height:1;
+  color:var(--cy);text-shadow:0 0 26px rgba(62,230,255,.5)}
+.zm-num i{font-family:var(--mono);font-style:normal;font-size:20px;color:var(--mut)}
+.zm-bar{position:relative;height:10px;background:rgba(120,200,255,.1);border:1px solid var(--line)}
+.zm-bar .fill{position:absolute;inset:0;width:10%;background:linear-gradient(90deg,var(--cy),var(--am) 60%,var(--mg));
+  box-shadow:0 0 14px rgba(255,180,84,.35);transition:width .12s linear}
+.tick{position:absolute;top:-4px;bottom:-4px;width:1px;background:rgba(232,244,251,.5)}
+.tick em{position:absolute;top:12px;left:-14px;font-style:normal;font-family:var(--mono);font-size:9px;color:var(--mut)}
+.tick u{position:absolute;top:23px;left:-20px;text-decoration:none;font-family:var(--mono);font-size:8.5px;letter-spacing:1px;color:rgba(138,163,181,.7)}
+.chips{display:flex;flex-wrap:wrap;gap:7px;margin-top:34px}
+.chip{pointer-events:auto;cursor:pointer;font-family:var(--disp);font-weight:500;font-size:10px;letter-spacing:1.5px;
+  color:#bfe9ff;background:rgba(10,22,32,.9);border:1px solid var(--line);padding:7px 11px;
+  clip-path:polygon(7px 0,100% 0,100% 100%,0 100%,0 7px);transition:all .18s}
+.chip:hover{border-color:var(--cy);color:#fff;box-shadow:0 0 14px rgba(62,230,255,.25);transform:translateY(-1px)}
+.chip.active{background:var(--cy);color:#04121a;border-color:var(--cy);font-weight:700}
+
+.pipeline{position:absolute;right:18px;top:50%;transform:translateY(-46%);width:285px;padding:15px 16px 13px}
+.pipeline h2{font-family:var(--disp);font-weight:700;font-size:12px;letter-spacing:2.5px;color:var(--ink);
+  padding-bottom:9px;margin-bottom:9px;border-bottom:1px solid var(--line)}
+.stage{display:grid;grid-template-columns:10px 1fr 62px 34px;align-items:center;gap:9px;padding:5.5px 0}
+.stage i{width:8px;height:8px;background:var(--c);box-shadow:0 0 9px var(--c);border-radius:1px}
+.stage span{font-size:11.5px;color:#c8dbe8;white-space:nowrap}
+.stage .sbar{height:4px}
+.stage .sbar div{background:var(--c);box-shadow:0 0 8px var(--c);transition:width .18s}
+.stage b{font-family:var(--mono);font-weight:400;font-size:10.5px;color:var(--mut);text-align:right}
+
+.ctrls{position:absolute;left:50%;bottom:20px;transform:translateX(-50%);display:flex;align-items:center;gap:10px;pointer-events:auto}
+.btn{cursor:pointer;font-family:var(--disp);font-weight:500;font-size:11px;letter-spacing:2px;color:#bfe9ff;
+  background:rgba(9,18,27,.92);border:1px solid var(--line);padding:11px 18px;
+  clip-path:polygon(9px 0,100% 0,100% 100%,0 100%,0 9px);transition:all .18s}
+.btn:hover{border-color:var(--cy);color:#fff;box-shadow:0 0 18px rgba(62,230,255,.3);transform:translateY(-2px)}
+.btn.active{background:var(--cy);color:#04121a;font-weight:700;border-color:var(--cy)}
+.hint{position:absolute;left:50%;bottom:2px;transform:translateX(-50%);font-family:var(--mono);font-size:9.5px;
+  letter-spacing:.5px;color:rgba(138,163,181,.85);white-space:nowrap}
+.hint b{color:var(--am);font-weight:600}
+
+.toast{position:fixed;left:50%;bottom:96px;transform:translate(-50%,14px);opacity:0;pointer-events:none;
+  background:rgba(7,14,21,.95);border:1px solid var(--line);border-left:3px solid var(--cy);
+  padding:11px 18px;font-size:12.5px;color:var(--ink);letter-spacing:.3px;z-index:9;
+  clip-path:polygon(0 0,calc(100% - 12px) 0,100% 12px,100% 100%,12px 100%,0 calc(100% - 12px));
+  transition:opacity .35s,transform .35s;box-shadow:0 8px 30px rgba(0,0,0,.5)}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+.toast b{color:var(--cy);font-family:var(--mono)}
+
+.vig{position:fixed;inset:0;pointer-events:none;z-index:4;
+  background:radial-gradient(125% 95% at 50% 42%,transparent 55%,rgba(2,5,9,.62) 100%),
+             linear-gradient(180deg,rgba(3,6,10,.35),transparent 18%)}
+.cred{position:fixed;right:14px;bottom:8px;font-family:var(--mono);font-size:9px;letter-spacing:1px;
+  color:rgba(138,163,181,.5);z-index:5;pointer-events:none}
+
+@media (max-width:1180px){.pipeline{display:none}}
+@media (max-width:860px){
+  .stats{display:none}.brand p{display:none}.brand{max-width:300px}
+  .zoommod{width:270px}.hint{display:none}
+}
+
+/* ========== SETA DE SCROLL ========== */
+.scroll-indicator{
+  position:fixed;
+  left:50%;
+  bottom:40px;
+  transform:translateX(-50%);
+  z-index:10;
+  animation:bounce 2s infinite;
+  pointer-events:none;
+}
+.scroll-indicator svg{
+  width:40px;
+  height:40px;
+  fill:none;
+  stroke:var(--cy);
+  stroke-width:2;
+  filter:drop-shadow(0 0 10px rgba(62,230,255,0.6));
+}
+@keyframes bounce{
+  0%,20%,50%,80%,100%{transform:translateX(-50%) translateY(0)}
+  40%{transform:translateX(-50%) translateY(-10px)}
+  60%{transform:translateX(-50%) translateY(-5px)}
+}
+
+/* ========== CONTEÚDO PRINCIPAL ========== */
+.main-content{
+  position:relative;
+  z-index:2;
+  background:var(--bg);
+  margin-top:100vh;
+  min-height:100vh;
+}
+
+/* ========== SEÇÃO DE SERVIÇOS ========== */
+.services-section{
+  padding:80px 20px;
+  max-width:1400px;
+  margin:0 auto;
+}
+.section-title{
+  font-family:var(--disp);
+  font-size:clamp(28px,4vw,42px);
+  text-align:center;
+  margin-bottom:60px;
+  color:var(--ink);
+  text-shadow:0 0 30px rgba(62,230,255,0.3);
+}
+.section-title span{
+  color:var(--cy);
+}
+
+.services-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(320px, 1fr));
+  gap:30px;
+  margin-bottom:80px;
+}
+
+.service-card{
+  background:rgba(7,13,20,.8);
+  border:1px solid var(--line);
+  border-radius:12px;
+  padding:30px;
+  position:relative;
+  overflow:hidden;
+  transition:all 0.4s ease;
+  opacity:0;
+  transform:translateX(-100px);
+}
+.service-card:nth-child(even){
+  transform:translateX(100px);
+}
+.service-card.visible{
+  opacity:1;
+  transform:translateX(0);
+}
+.service-card:hover{
+  border-color:var(--cy);
+  box-shadow:0 0 30px rgba(62,230,255,0.2), inset 0 0 20px rgba(62,230,255,0.05);
+  transform:translateY(-5px);
+}
+.service-card::before{
+  content:"";
+  position:absolute;
+  top:0;
+  left:0;
+  right:0;
+  height:2px;
+  background:linear-gradient(90deg, transparent, var(--cy), transparent);
+  opacity:0;
+  transition:opacity 0.3s;
+}
+.service-card:hover::before{
+  opacity:1;
+}
+
+.service-image{
+  width:100%;
+  height:220px;
+  object-fit:cover;
+  border-radius:8px;
+  margin-bottom:20px;
+  border:1px solid var(--line);
+}
+
+.service-icon{
+  width:60px;
+  height:60px;
+  margin-bottom:20px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:rgba(62,230,255,0.1);
+  border-radius:12px;
+  border:1px solid var(--cy);
+}
+.service-icon svg{
+  width:32px;
+  height:32px;
+  stroke:var(--cy);
+  fill:none;
+  stroke-width:2;
+}
+
+.service-title{
+  font-family:var(--disp);
+  font-size:20px;
+  color:var(--ink);
+  margin-bottom:12px;
+  font-weight:700;
+}
+
+.service-desc{
+  font-size:14px;
+  color:var(--mut);
+  line-height:1.6;
+  margin-bottom:20px;
+}
+
+.whatsapp-btn{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  background:var(--whatsapp);
+  color:#fff;
+  padding:12px 24px;
+  border-radius:8px;
+  text-decoration:none;
+  font-family:var(--disp);
+  font-weight:600;
+  font-size:14px;
+  transition:all 0.3s;
+  border:1px solid rgba(37,211,102,0.3);
+  box-shadow:0 4px 15px rgba(37,211,102,0.2);
+}
+.whatsapp-btn:hover{
+  transform:translateY(-2px);
+  box-shadow:0 6px 20px rgba(37,211,102,0.35);
+  background:#128C7E;
+}
+.whatsapp-btn svg{
+  width:20px;
+  height:20px;
+  fill:currentColor;
+}
+
+/* ========== DEPOIMENTOS ========== */
+.testimonials-section{
+  padding:80px 20px;
+  background:rgba(5,8,13,0.5);
+  border-top:1px solid var(--line);
+  border-bottom:1px solid var(--line);
+}
+.testimonials-grid{
+  max-width:1200px;
+  margin:0 auto;
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(300px, 1fr));
+  gap:30px;
+}
+.testimonial-card{
+  background:rgba(7,13,20,.6);
+  border:1px solid var(--line);
+  border-radius:12px;
+  padding:25px;
+  transition:all 0.3s;
+}
+.testimonial-card:hover{
+  border-color:var(--cy);
+  box-shadow:0 0 20px rgba(62,230,255,0.15);
+}
+.testimonial-stars{
+  color:var(--am);
+  font-size:18px;
+  margin-bottom:10px;
+  letter-spacing:2px;
+}
+.testimonial-text{
+  font-size:14px;
+  color:var(--mut);
+  line-height:1.7;
+  margin-bottom:15px;
+  font-style:italic;
+}
+.testimonial-author{
+  font-family:var(--disp);
+  font-weight:600;
+  color:var(--ink);
+  font-size:15px;
+}
+.testimonial-time{
+  font-size:12px;
+  color:var(--mut);
+  margin-top:5px;
+}
+
+/* ========== MAPA E CONTATO ========== */
+.contact-section{
+  padding:80px 20px;
+  max-width:1400px;
+  margin:0 auto;
+}
+.contact-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:40px;
+  align-items:start;
+}
+@media(max-width:900px){
+  .contact-grid{
+    grid-template-columns:1fr;
+  }
+}
+
+.map-container{
+  background:rgba(7,13,20,.8);
+  border:1px solid var(--line);
+  border-radius:12px;
+  overflow:hidden;
+  height:400px;
+}
+.map-container iframe{
+  width:100%;
+  height:100%;
+  border:none;
+  filter:grayscale(100%) invert(92%) contrast(83%);
+}
+
+.contact-info{
+  background:rgba(7,13,20,.8);
+  border:1px solid var(--line);
+  border-radius:12px;
+  padding:40px;
+}
+.contact-info h3{
+  font-family:var(--disp);
+  font-size:24px;
+  color:var(--ink);
+  margin-bottom:25px;
+}
+.contact-item{
+  display:flex;
+  align-items:flex-start;
+  gap:15px;
+  margin-bottom:25px;
+}
+.contact-item svg{
+  width:24px;
+  height:24px;
+  stroke:var(--cy);
+  fill:none;
+  stroke-width:2;
+  flex-shrink:0;
+  margin-top:3px;
+}
+.contact-item div{
+  flex:1;
+}
+.contact-item label{
+  display:block;
+  font-family:var(--mono);
+  font-size:11px;
+  letter-spacing:1.5px;
+  color:var(--mut);
+  margin-bottom:5px;
+  text-transform:uppercase;
+}
+.contact-item span{
+  display:block;
+  font-size:15px;
+  color:var(--ink);
+  line-height:1.5;
+}
+.contact-item a{
+  color:var(--cy);
+  text-decoration:none;
+  transition:color 0.3s;
+}
+.contact-item a:hover{
+  color:var(--gn);
+  text-shadow:0 0 10px rgba(61,220,132,0.5);
+}
+
+.hours-badge{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  background:rgba(61,220,132,0.15);
+  border:1px solid var(--gn);
+  padding:10px 16px;
+  border-radius:8px;
+  margin-top:10px;
+}
+.hours-badge svg{
+  width:18px;
+  height:18px;
+  stroke:var(--gn);
+}
+.hours-badge span{
+  color:var(--gn);
+  font-weight:600;
+  font-size:14px;
+}
+
+/* ========== BOTÃO TOPO ========== */
+.back-to-top{
+  position:fixed;
+  bottom:30px;
+  right:30px;
+  width:50px;
+  height:50px;
+  background:rgba(7,13,20,.9);
+  border:1px solid var(--cy);
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  cursor:pointer;
+  opacity:0;
+  visibility:hidden;
+  transition:all 0.3s;
+  z-index:100;
+  box-shadow:0 0 20px rgba(62,230,255,0.3);
+}
+.back-to-top.visible{
+  opacity:1;
+  visibility:visible;
+}
+.back-to-top:hover{
+  background:var(--cy);
+  transform:translateY(-3px);
+  box-shadow:0 0 30px rgba(62,230,255,0.5);
+}
+.back-to-top svg{
+  width:24px;
+  height:24px;
+  stroke:var(--cy);
+  fill:none;
+  stroke-width:2;
+}
+.back-to-top:hover svg{
+  stroke:#04121a;
+}
+
+/* ========== FOOTER ========== */
+footer{
+  background:rgba(5,8,13,0.8);
+  border-top:1px solid var(--line);
+  padding:40px 20px;
+  text-align:center;
+}
+footer p{
+  color:var(--mut);
+  font-size:14px;
+  margin-bottom:10px;
+}
+footer .social-links{
+  display:flex;
+  justify-content:center;
+  gap:20px;
+  margin:20px 0;
+}
+footer .social-links a{
+  width:40px;
+  height:40px;
+  border:1px solid var(--line);
+  border-radius:8px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  transition:all 0.3s;
+}
+footer .social-links a:hover{
+  border-color:var(--cy);
+  box-shadow:0 0 15px rgba(62,230,255,0.3);
+  transform:translateY(-3px);
+}
+footer .social-links svg{
+  width:20px;
+  height:20px;
+  fill:var(--mut);
+  transition:fill 0.3s;
+}
+footer .social-links a:hover svg{
+  fill:var(--cy);
+}
+
+/* ========== ANIMAÇÕES ========== */
+@keyframes fadeInUp{
+  from{
+    opacity:0;
+    transform:translateY(30px);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+.fade-in-up{
+  animation:fadeInUp 0.6s ease forwards;
+}
+</style>
+</head>
+<body>
+
+<!-- HERO 3D -->
+<div id="scene"></div>
+
+<!-- HUD DO HERO -->
+<div class="hud">
+  <header class="panel brand">
+    <div class="eyebrow">GL TECH NITERÓI · ESPECIALISTAS EM TECNOLOGIA</div>
+    <h1>GPU<span class="x">×</span><span class="t2">TRANSFORMER</span></h1>
+    <p>Manutenção, montagem e suporte técnico especializado. Soluções completas para seu computador no Centro de Niterói.</p>
+  </header>
+
+  <section class="panel stats">
+    <div class="stat"><label>TOKENS/S</label><b id="stTok">—</b><div class="sbar"><div id="sbTok"></div></div></div>
+    <div class="stat"><label>TFLOPS</label><b id="stFlo">—</b><div class="sbar"><div id="sbFlo"></div></div></div>
+    <div class="stat"><label>TEMP</label><b id="stTmp">—</b><div class="sbar"><div id="sbTmp"></div></div></div>
+    <div class="stat"><label>UTILIZAÇÃO</label><b id="stUti">—</b><div class="sbar"><div id="sbUti"></div></div></div>
+  </section>
+
+  <section class="panel zoommod">
+    <div class="zm-head"><span>NÍVEL DE ZOOM</span><span id="lvlName" class="lvl-chip">CHASSI · EXTERIOR</span></div>
+    <div class="zm-num"><span id="zoomPct">100</span><i>%</i></div>
+    <div class="zm-bar">
+      <div class="fill" id="zoomFill"></div>
+      <span class="tick" style="left:12.5%"><em>125%</em><u>interior</u></span>
+      <span class="tick" style="left:22%"><em>220%</em><u>SM</u></span>
+      <span class="tick" style="left:40%"><em>400%</em><u>tensor</u></span>
+    </div>
+    <div class="chips">
+      <button class="chip active" data-dist="26">01 · CHASSI</button>
+      <button class="chip" data-dist="17.5">02 · INTERIOR</button>
+      <button class="chip" data-dist="7.6">03 · SM</button>
+      <button class="chip" data-dist="3.7">04 · TENSOR</button>
+    </div>
+  </section>
+
+  <aside class="panel pipeline">
+    <h2>PIPELINE TRANSFORMER</h2>
+    <div class="stage" style="--c:#3ee6ff"><i></i><span>Tokens de entrada</span><div class="sbar"><div></div></div><b>—</b></div>
+    <div class="stage" style="--c:#3ddc84"><i></i><span>Embedding + posicional</span><div class="sbar"><div></div></div><b>—</b></div>
+    <div class="stage" style="--c:#ffb454"><i></i><span>Atenção multi-cabeça ×32</span><div class="sbar"><div></div></div><b>—</b></div>
+    <div class="stage" style="--c:#2dd4bf"><i></i><span>Feed-forward · GeLU</span><div class="sbar"><div></div></div><b>—</b></div>
+    <div class="stage" style="--c:#d4a5ff"><i></i><span>Norma de camada + residual</span><div class="sbar"><div></div></div><b>—</b></div>
+    <div class="stage" style="--c:#ff5c8a"><i></i><span>Cabeça LM · softmax</span><div class="sbar"><div></div></div><b>—</b></div>
+  </aside>
+
+  <footer class="ctrls">
+    <button id="btnAuto" class="btn active">⟳ AUTO-ROTAÇÃO</button>
+    <button id="btnReset" class="btn">REINICIAR VISTA</button>
+  </footer>
+  <div class="hint">Arraste para orbitar · roda do mouse para zoom · <b>&gt;125%</b> abre o chassis · teclas <b>1–4</b> · <b>A</b> · <b>R</b></div>
+
+  <div id="toast" class="toast"></div>
+  <div class="vig"></div>
+  <div class="cred">GL TECH NITERÓI · SOLUÇÕES EM TI</div>
+</div>
+
+<!-- SETA DE SCROLL -->
+<div class="scroll-indicator">
+  <svg viewBox="0 0 24 24">
+    <path d="M12 5v14M5 12l7 7 7-7"/>
+  </svg>
+</div>
+
+<!-- CONTEÚDO PRINCIPAL -->
+<main class="main-content">
+
+  <!-- SEÇÃO DE SERVIÇOS -->
+  <section class="services-section" id="servicos">
+    <h2 class="section-title"><span>Nossos</span> Serviços</h2>
+    
+    <div class="services-grid">
+      <!-- Banner1: Troca de Teclado -->
+      <div class="service-card">
+        <img src="https://raw.githubusercontent.com/Ripmastersid/GLTECH/main/Banner1.png" alt="Troca de Teclado" class="service-image">
+        <h3 class="service-title">Troca de Teclado</h3>
+        <p class="service-desc">Substituição de teclados para notebooks e desktops. Peças originais e compatíveis com garantia.</p>
+        <a href="https://wa.me/5521988864452?text=Olá! Gostaria de informações sobre troca de teclado." class="whatsapp-btn" target="_blank">
+          <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+          Solicitar Orçamento
+        </a>
+      </div>
+
+      <!-- Banner2: Formatação -->
+      <div class="service-card">
+        <img src="https://raw.githubusercontent.com/Ripmastersid/GLTECH/main/Banner2.png" alt="Formatação" class="service-image">
+        <h3 class="service-title">Formatação</h3>
+        <p class="service-desc">Formatação completa de computadores e notebooks. Instalação de Windows, Linux e drivers atualizados.</p>
+        <a href="https://wa.me/5521988864452?text=Olá! Preciso formatar meu computador." class="whatsapp-btn" target="_blank">
+          <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+          Agendar Formatação
+        </a>
+      </div>
+
+      <!-- Banner3: Formatação com Backup -->
+      <div class="service-card">
+        <img src="https://raw.githubusercontent.com/Ripmastersid/GLTECH/main/Banner3.png" alt="Formatação com Backup" class="service-image">
+        <h3 class="service-title">Formatação com Backup</h3>
+        <p class="service-desc">Formatação segura com backup completo dos seus arquivos antes da formatação. Seus dados protegidos.</p>
+        <a href="https://wa.me/5521988864452?text=Olá! Quero fazer formatação com backup dos meus arquivos." class="whatsapp-btn" target="_blank">
+          <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+          Fazer Backup
+        </a>
+      </div>
+
+      <!-- Banner4: Recuperação de Dados -->
+      <div class="service-card">
+        <img src="https://raw.githubusercontent.com/Ripmastersid/GLTECH/main/Banner4.png" alt="Recuperação de Dados" class="service-image">
+        <h3 class="service-title">Recuperação de Dados Nível 1</h3>
+        <p class="service-desc">Recuperação de arquivos deletados, HDs formatados e mídias danificadas. Recupere o que é importante.</p>
+        <a href="https://wa.me/5521988864452?text=Olá! Preciso recuperar dados do meu HD/SSD." class="whatsapp-btn" target="_blank">
+          <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+          Recuperar Dados
+        </a>
+      </div>
+
+      <!-- Banner5: Montagem -->
+      <div class="service-card">
+        <img src="https://raw.githubusercontent.com/Ripmastersid/GLTECH/main/Banner5.png" alt="Montagem de PC" class="service-image">
+        <h3 class="service-title">Montagem de PC</h3>
+        <p class="service-desc">Montagem profissional de computadores personalizados. Do básico ao gamer, montamos seu PC dos sonhos.</p>
+        <a href="https://wa.me/5521988864452?text=Olá! Quero montar um PC personalizado." class="whatsapp-btn" target="_blank">
+          <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+          Montar Meu PC
+        </a>
+      </div>
+
+      <!-- Banner6: Reparo de Placa -->
+      <div class="service-card">
+        <img src="https://raw.githubusercontent.com/Ripmastersid/GLTECH/main/Banner6.png" alt="Reparo de Placa" class="service-image">
+        <h3 class="service-title">Reparo de Placa de Notebook</h3>
+        <p class="service-desc">Conserto especializado em placas de notebook. Diagnóstico preciso e reparo com componentes de qualidade.</p>
+        <a href="https://wa.me/5521988864452?text=Olá! Meu notebook está com problema na placa. Preciso de reparo." class="whatsapp-btn" target="_blank">
+          <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+          Reparar Placa
+        </a>
+      </div>
+
+      <!-- Banner7: Manutenção de Impressora -->
+      <div class="service-card">
+        <img src="https://raw.githubusercontent.com/Ripmastersid/GLTECH/main/Banner7.png" alt="Manutenção de Impressora" class="service-image">
+        <h3 class="service-title">Reparo e Manutenção de Impressora</h3>
+        <p class="service-desc">Conserto e manutenção preventiva/corretiva de impressoras. Todas as marcas e modelos.</p>
+        <a href="https://wa.me/5521988864452?text=Olá! Minha impressora precisa de manutenção/reparo." class="whatsapp-btn" target="_blank">
+          <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+          Consertar Impressora
+        </a>
+      </div>
+
+      <!-- Banner8: Manutenção Preventiva -->
+      <div class="service-card">
+        <img src="https://raw.githubusercontent.com/Ripmastersid/GLTECH/main/Banner8.png" alt="Manutenção Preventiva" class="service-image">
+        <h3 class="service-title">Manutenção Preventiva e Corretiva</h3>
+        <p class="service-desc">Limpeza, troca de pasta térmica e manutenção completa de notebooks, desktops e impressoras.</p>
+        <a href="https://wa.me/5521988864452?text=Olá! Quero fazer manutenção preventiva no meu equipamento." class="whatsapp-btn" target="_blank">
+          <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+          Agendar Manutenção
+        </a>
+      </div>
+
+      <!-- Container9: Venda de Periféricos (mockup) -->
+      <div class="service-card">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24"><path d="M20 18c1.1 0 1.99-.9 1.99-2L22 6c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2H0v2h24v-2h-4zM4 6h16v10H4V6z"/></svg>
+        </div>
+        <h3 class="service-title">Venda de Periféricos</h3>
+        <p class="service-desc">Teclados, mouses, headsets, webcams e acessórios. Produtos de qualidade com preços competitivos.</p>
+        <a href="https://wa.me/5521988864452?text=Olá! Tenho interesse em comprar periféricos." class="whatsapp-btn" target="_blank">
+          <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+          Ver Produtos
+        </a>
+      </div>
+
+      <!-- Container10: Instalação de Rede (mockup) -->
+      <div class="service-card">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24"><path d="M8 16l-6 6 6 6M16 16l6 6-6 6M12 4l-6 6 6 6 6-6-6-6z"/></svg>
+        </div>
+        <h3 class="service-title">Instalação e Configuração de Rede</h3>
+        <p class="service-desc">Instalação de redes cabeadas e wireless. Configuração de roteadores, switches e acesso ponto a ponto.</p>
+        <a href="https://wa.me/5521988864452?text=Olá! Preciso instalar/configurar uma rede." class="whatsapp-btn" target="_blank">
+          <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+          Configurar Rede
+        </a>
+      </div>
+
+      <!-- Container11: Venda de Cabos (mockup) -->
+      <div class="service-card">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24"><path d="M4 4h16v16H4zM8 8v8M12 8v8M16 8v8"/></svg>
+        </div>
+        <h3 class="service-title">Venda de Cabos e Conectores</h3>
+        <p class="service-desc">Cabos HDMI, USB, Ethernet, VGA, DisplayPort e diversos conectores. Qualidade garantida.</p>
+        <a href="https://wa.me/5521988864452?text=Olá! Preciso comprar cabos/conectores." class="whatsapp-btn" target="_blank">
+          <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+          Comprar Cabos
+        </a>
+      </div>
+
+      <!-- Container12: Atendimento Remoto (mockup) -->
+      <div class="service-card">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+        </div>
+        <h3 class="service-title">Atendimento Remoto</h3>
+        <p class="service-desc">Suporte técnico online via TeamViewer, AnyDesk ou acesso remoto. Resolva problemas sem sair de casa.</p>
+        <a href="https://wa.me/5521988864452?text=Olá! Preciso de atendimento remoto/suporte online." class="whatsapp-btn" target="_blank">
+          <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+          Atendimento Remoto
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- DEPOIMENTOS -->
+  <section class="testimonials-section" id="depoimentos">
+    <h2 class="section-title"><span>O que dizem</span> nossos clientes</h2>
+    
+    <div class="testimonials-grid">
+      <div class="testimonial-card">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">"Excelente local e de confiança. Com ótimos profissionais no local. Montei meu PC lá e não deu nada de errado. Recomendo muito. Melhor loja de Niterói."</p>
+        <div class="testimonial-author">Victor Frinhani</div>
+        <div class="testimonial-time">4 anos atrás</div>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">"O Lucas e o Gabriel são excelentes profissionais. Super disponíveis pelo WhatsApp e telefone. Estou super satisfeita com o serviço realizado em meu notebook."</p>
+        <div class="testimonial-author">Gabriella Sader</div>
+        <div class="testimonial-time">4 anos atrás</div>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">"Quero registrar aqui o excelente atendimento que eu e minha filha recebemos do Lucas e do Gabriel, referente ao notebook dela e ao meu computador. Atendimento maravilhoso, seja presencial ou pelo whatsapp! Os dois são muito gentis, ágeis..."</p>
+        <div class="testimonial-author">Lila Leite</div>
+        <div class="testimonial-time">2 anos atrás</div>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">"Super recomendo. É a segunda vez que recorro aos serviços do Lucas e do Gabriel e estou novamente muito satisfeito. Ambos são bastante acessíveis, solícitos e sempre resolvem todos os problemas do meu computador. Ótimo atendimento é excelente custo benefício. Sem dúvidas, o melhor da região."</p>
+        <div class="testimonial-author">Thales Amaral</div>
+        <div class="testimonial-time">4 anos atrás</div>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">"Excelente serviço e atendimento. Fiquei muito satisfeita. Recomendo."</p>
+        <div class="testimonial-author">Mell Oliveira</div>
+        <div class="testimonial-time">4 anos atrás</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTATO E MAPA -->
+  <section class="contact-section" id="contato">
+    <h2 class="section-title"><span>Entre em</span> Contato</h2>
+    
+    <div class="contact-grid">
+      <div class="map-container">
+        <iframe 
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3675.1234567890123!2d-43.12345678901234!3d-22.12345678901234!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x997f5e5e5e5e5e5e%3A0x5e5e5e5e5e5e5e5e!2sR.%20Alm.%20Tef%C3%A9%2C%20655%20-%20BOX%2002%2F03A%20-%20Centro%2C%20Niter%C3%B3i%20-%20RJ%2C%2024030-085!5e0!3m2!1spt-BR!2sbr!4v1234567890123!5m2!1spt-BR!2sbr"
+          allowfullscreen="" 
+          loading="lazy" 
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
+
+      <div class="contact-info">
+        <h3>GL TECH Niterói</h3>
+        
+        <div class="contact-item">
+          <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+          <div>
+            <label>Email</label>
+            <a href="mailto:contato@gltech.vip">contato@gltech.vip</a>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+          <div>
+            <label>WhatsApp / Telefone</label>
+            <a href="https://wa.me/5521988864452" target="_blank">(21) 98886-4452</a>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+          <div>
+            <label>Endereço</label>
+            <span>R. Alm. Tefé, 655 - BOX 02/03A<br>Centro, Niterói - RJ, 24030-085</span>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <svg viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
+          <div>
+            <label>Horário de Funcionamento</label>
+            <div class="hours-badge">
+              <svg viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
+              <span>Aberto agora · Fecha às 18:00</span>
+            </div>
+            <span style="margin-top:8px; font-size:13px;">Segunda a Sexta: 09h às 18h<br>Sábado: até 13h</span>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+          <div>
+            <label>Profissionais</label>
+            <span>Lucas e Gabriel</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>&copy; 2026 GL TECH Niterói. Todos os direitos reservados.</p>
+    <p>Especialistas em manutenção de computadores e notebooks no Centro de Niterói</p>
+    
+    <div class="social-links">
+      <a href="https://instagram.com/gltech.vip" target="_blank" title="Instagram">
+        <svg viewBox="0 0 24 24"><path d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.61 18.39 4 16.4 4H7.6m9.65 1.5a1.25 1.25 0 0 1 1.25 1.25A1.25 1.25 0 0 1 17.25 8 1.25 1.25 0 0 1 16 6.75a1.25 1.25 0 0 1 1.25-1.25M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3z"/></svg>
+      </a>
+      <a href="https://wa.me/5521988864452" target="_blank" title="WhatsApp">
+        <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+      </a>
+      <a href="https://maps.app.goo.gl/ScnQ64Sm5REyo5He6" target="_blank" title="Google Maps">
+        <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+      </a>
+    </div>
+  </footer>
+
+</main>
+
+<!-- BOTÃO TOPO -->
+<div class="back-to-top" id="backToTop">
+  <svg viewBox="0 0 24 24"><path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"/></svg>
+</div>
+
+<!-- SCRIPT DO HERO 3D -->
+<script type="importmap">
+{ "imports": {
+  "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+  "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+}}
+</script>
+<script type="module">
+import * as THREE from 'three';
+import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+import { EffectComposer } from 'three/addons/postprocessing/EffectComposer.js';
+import { RenderPass } from 'three/addons/postprocessing/RenderPass.js';
+import { UnrealBloomPass } from 'three/addons/postprocessing/UnrealBloomPass.js';
+import { OutputPass } from 'three/addons/postprocessing/OutputPass.js';
+
+const D0 = 26;
+const LVLNAMES = ['CHASSI · EXTERIOR','INTERIOR · DIE + VRAM','SM · MULTIPROCESSADOR','TENSOR CORE · MMA'];
+const TOASTS = [
+  '',
+  '<b>&gt;125%</b> — chassis aberto: die, VRAM e VRM visíveis',
+  '<b>&gt;220%</b> — dentro do multiprocessador de streaming',
+  '<b>&gt;400%</b> — núcleo tensor: multiplicação de matrizes ao vivo'
+];
+const DEFAULT_POS = new THREE.Vector3(11.5, 8.6, 22.6);
+const TARGET0 = new THREE.Vector3(0, 1.5, 0);
+
+function rr(g,x,y,w,h,r){ g.beginPath(); g.moveTo(x+r,y); g.arcTo(x+w,y,x+w,y+h,r); g.arcTo(x+w,y+h,x,y+h,r); g.arcTo(x,y+h,x,y,r); g.arcTo(x,y,x+w,y,r); g.closePath(); }
+const smooth01 = x => x<=0?0 : x>=1?1 : x*x*(3-2*x);
+const easeIOC = k => k<.5 ? 4*k*k*k : 1-Math.pow(-2*k+2,3)/2;
+const easeOC = x => 1-Math.pow(1-x,3);
+
+async function main(){
+  try{
+    await Promise.race([
+      Promise.all([
+        document.fonts.load('700 48px "Chakra Petch"'),
+        document.fonts.load('500 40px "Chakra Petch"'),
+        document.fonts.load('600 40px "IBM Plex Mono"'),
+        document.fonts.load('500 40px "Space Grotesk"')
+      ]),
+      new Promise(r=>setTimeout(r,1600))
+    ]);
+  }catch(e){}
+  init();
+}
+
+function init(){
+const host = document.getElementById('scene');
+const renderer = new THREE.WebGLRenderer({antialias:true, powerPreference:'high-performance'});
+renderer.setPixelRatio(Math.min(devicePixelRatio,2));
+renderer.setSize(innerWidth,innerHeight);
+renderer.toneMapping = THREE.ACESFilmicToneMapping;
+renderer.toneMappingExposure = 1.12;
+host.appendChild(renderer.domElement);
+
+const scene = new THREE.Scene();
+scene.background = new THREE.Color(0x05080d);
+scene.fog = new THREE.FogExp2(0x060a11, 0.012);
+
+const camera = new THREE.PerspectiveCamera(45, innerWidth/innerHeight, .1, 500);
+camera.position.set(17,13.5,34);
+
+const controls = new OrbitControls(camera, renderer.domElement);
+controls.target.copy(TARGET0);
+controls.enableDamping = true; controls.dampingFactor = .06;
+controls.minDistance = 2.6; controls.maxDistance = 60;
+controls.enablePan = false;
+controls.minPolarAngle = .12; controls.maxPolarAngle = 1.48;
+controls.autoRotate = true; controls.autoRotateSpeed = .7;
+controls.zoomSpeed = .85;
+
+const composer = new EffectComposer(renderer);
+composer.addPass(new RenderPass(scene,camera));
+const bloomPass = new UnrealBloomPass(new THREE.Vector2(innerWidth,innerHeight), .55, .75, .72);
+composer.addPass(bloomPass);
+composer.addPass(new OutputPass());
+
+scene.add(new THREE.HemisphereLight(0x3a5a70, 0x0b0e13, .55));
+scene.add(new THREE.AmbientLight(0x22303c, .5));
+const key = new THREE.DirectionalLight(0xdff6ff, 1.25); key.position.set(7,12,5); scene.add(key);
+const rim = new THREE.PointLight(0xff5c8a, 60, 60); rim.position.set(-10,5,-9); scene.add(rim);
+const fill = new THREE.PointLight(0x3ee6ff, 30, 40); fill.position.set(2,2.5,9); scene.add(fill);
+
+const shellMats=[], hotMats=[], smMats=[], tensorMats=[], pipeMats=[], pulseMats=[];
+function reg(m, arr, base){ m.userData.baseOp = (base===undefined?1:base); m.transparent = true; arr.push(m); return m; }
+function fadeArr(arr, f, dwAt){
+  for(const m of arr){
+    m.opacity = m.userData.baseOp * f;
+    if(dwAt!==undefined) m.depthWrite = f > dwAt;
+  }
+}
+
+function cnv(w,h){ const c=document.createElement('canvas'); c.width=w; c.height=h; return [c, c.getContext('2d')]; }
+function tex(c){ const t=new THREE.CanvasTexture(c); t.colorSpace=THREE.SRGBColorSpace; t.anisotropy=8; return t; }
+
+function dieTexture(){
+  const [c,g]=cnv(512,420);
+  g.fillStyle='#0a111c'; g.fillRect(0,0,512,420);
+  g.strokeStyle='#1d3b55'; g.lineWidth=4; g.strokeRect(8,8,496,404);
+  const cw=(512-60)/12, ch=(420-90)/9;
+  for(let i=0;i<12;i++) for(let j=0;j<9;j++){
+    const x=30+i*cw, y=30+j*ch;
+    const lit=Math.random()<.16;
+    g.fillStyle = lit ? (Math.random()<.5?'rgba(62,230,255,.85)':'rgba(255,180,84,.8)') : '#0d1a2b';
+    g.fillRect(x+2,y+2,cw-4,ch-4);
+    g.strokeStyle='#153049'; g.lineWidth=1; g.strokeRect(x+2,y+2,cw-4,ch-4);
+  }
+  g.fillStyle='rgba(6,10,17,.82)'; rr(g,116,178,280,64,8); g.fill();
+  g.font='700 30px "Chakra Petch", sans-serif'; g.textAlign='center'; g.textBaseline='middle';
+  g.fillStyle='#aef0ff'; g.shadowColor='#3ee6ff'; g.shadowBlur=16;
+  g.fillText('T-∞ · NÚCLEO NEURAL',256,200);
+  g.shadowBlur=0; g.font='400 17px "IBM Plex Mono", monospace'; g.fillStyle='#5f87a0';
+  g.fillText('5 nm · 128 SM · GDDR6X',256,226);
+  return tex(c);
+}
+function logoTexture(){
+  const [c,g]=cnv(1024,128);
+  g.clearRect(0,0,1024,128);
+  g.font='700 78px "Chakra Petch", sans-serif'; g.textAlign='center'; g.textBaseline='middle';
+  g.shadowColor='#3ee6ff'; g.shadowBlur=26; g.fillStyle='#d6fbff';
+  g.fillText('TRANSFORMER · RTX-∞',512,66);
+  return tex(c);
+}
+function embedTexture(){
+  const [c,g]=cnv(256,360);
+  g.fillStyle='rgba(8,20,26,.55)'; g.fillRect(0,0,256,360);
+  for(let i=0;i<10;i++) for(let j=0;j<16;j++){
+    const a=.15+Math.random()*.85;
+    g.fillStyle = Math.random()<.3 ? `rgba(61,220,132,${a})` : `rgba(62,230,255,${a})`;
+    g.beginPath(); g.arc(20+i*24, 16+j*22, 4.5, 0, 7); g.fill();
+  }
+  g.strokeStyle='rgba(62,230,255,.5)'; g.lineWidth=2; g.strokeRect(2,2,252,356);
+  return tex(c);
+}
+function radialTexture(){
+  const [c,g]=cnv(256,256);
+  const gr=g.createRadialGradient(128,128,4,128,128,126);
+  gr.addColorStop(0,'rgba(255,255,255,.9)'); gr.addColorStop(.45,'rgba(255,255,255,.28)'); gr.addColorStop(1,'rgba(255,255,255,0)');
+  g.fillStyle=gr; g.fillRect(0,0,256,256);
+  return tex(c);
+}
+function labelSprite(text, accent, w, arr){
+  accent = accent || '#3ee6ff'; w = w || 2.3;
+  const [c,g]=cnv(512,112);
+  g.fillStyle='rgba(5,11,17,.86)'; rr(g,4,4,504,104,10); g.fill();
+  g.strokeStyle=accent; g.lineWidth=3; rr(g,4,4,504,104,10); g.stroke();
+  g.fillStyle=accent; g.fillRect(4,22,7,68);
+  g.font='700 40px "Chakra Petch", sans-serif'; g.textAlign='center'; g.textBaseline='middle';
+  g.shadowColor=accent; g.shadowBlur=14; g.fillStyle='#ecf8ff';
+  g.fillText(text.toUpperCase(),262,58,470);
+  const m=new THREE.SpriteMaterial({map:tex(c), transparent:true, depthWrite:false});
+  const s=new THREE.Sprite(m); s.scale.set(w, w*112/512, 1);
+  reg(m, arr, .95);
+  return s;
+}
+function wordSprite(text, color, arr){
+  const [c,g]=cnv(256,96);
+  g.font='500 44px "Space Grotesk", sans-serif'; g.textAlign='center'; g.textBaseline='middle';
+  g.shadowColor=color; g.shadowBlur=16; g.fillStyle=color;
+  g.fillText(text,128,50);
+  const m=new THREE.SpriteMaterial({map:tex(c), transparent:true, depthWrite:false});
+  const s=new THREE.Sprite(m); s.scale.set(1.4,.52,1);
+  reg(m, arr, .95);
+  return s;
+}
+
+const skyGeo = new THREE.SphereGeometry(160, 32, 24);
+const skyMat = new THREE.ShaderMaterial({
+  side: THREE.BackSide, depthWrite:false, fog:false,
+  uniforms:{ cBot:{value:new THREE.Color(0x04070c)}, cMid:{value:new THREE.Color(0x0a1622)}, cTop:{value:new THREE.Color(0x0b1c2c)}, cBand:{value:new THREE.Color(0x0d3644)} },
+  vertexShader:'varying vec3 vP; void main(){ vP = position; gl_Position = projectionMatrix*modelViewMatrix*vec4(position,1.0); }',
+  fragmentShader:`varying vec3 vP; uniform vec3 cBot,cMid,cTop,cBand;
+    void main(){
+      float h = normalize(vP).y;
+      vec3 col = mix(cBot,cMid,smoothstep(-.45,.12,h));
+      col = mix(col,cTop,smoothstep(.12,.85,h));
+      col += cBand * exp(-pow((h-.02)*5.5,2.0)) * .55;
+      gl_FragColor = vec4(col,1.0);
+    }`
+});
+scene.add(new THREE.Mesh(skyGeo, skyMat));
+
+const grid = new THREE.GridHelper(120, 60, 0x1e4a5c, 0x0d2530);
+grid.position.y = -5.5; grid.material.transparent = true; grid.material.opacity = .3;
+scene.add(grid);
+
+const glowDisc = new THREE.Mesh(
+  new THREE.CircleGeometry(26,48),
+  new THREE.MeshBasicMaterial({map:radialTexture(), color:0x0e6f8f, transparent:true, opacity:.5, blending:THREE.AdditiveBlending, depthWrite:false})
+);
+glowDisc.rotation.x = -Math.PI/2; glowDisc.position.y = -5.4;
+scene.add(glowDisc);
+
+const dustN = 650, dustPos = new Float32Array(dustN*3);
+for(let i=0;i<dustN;i++){ dustPos[i*3]=(Math.random()-.5)*90; dustPos[i*3+1]=Math.random()*34-6; dustPos[i*3+2]=(Math.random()-.5)*90; }
+const dustGeo = new THREE.BufferGeometry();
+dustGeo.setAttribute('position', new THREE.BufferAttribute(dustPos,3));
+const dust = new THREE.Points(dustGeo, new THREE.PointsMaterial({color:0x9fd8ff, size:.07, transparent:true, opacity:.45, blending:THREE.AdditiveBlending, depthWrite:false}));
+scene.add(dust);
+
+const gpu = new THREE.Group(); scene.add(gpu);
+const shell = new THREE.Group(); gpu.add(shell);
+const dummy = new THREE.Object3D();
+const tmpC = new THREE.Color();
+
+const pcbMat = new THREE.MeshStandardMaterial({color:0x0e4632, roughness:.55, metalness:.25});
+const pcb = new THREE.Mesh(new THREE.BoxGeometry(16,.24,7.5), pcbMat); gpu.add(pcb);
+
+const fingerGeo = new THREE.BoxGeometry(.14,.26,.55);
+const fingerMat = new THREE.MeshStandardMaterial({color:0xd9a441, roughness:.3, metalness:.95});
+const fingers = new THREE.InstancedMesh(fingerGeo, fingerMat, 62);
+let fi=0;
+for(let x=-6.2;x<=6.2;x+=.2){ if(x>-1.5 && x<-.4) continue; dummy.position.set(x,-.02,3.55); dummy.rotation.set(0,0,0); dummy.scale.setScalar(1); dummy.updateMatrix(); fingers.setMatrixAt(fi++, dummy.matrix); }
+fingers.count = fi; gpu.add(fingers);
+
+const pwr = new THREE.Mesh(new THREE.BoxGeometry(1.6,.5,.9), new THREE.MeshStandardMaterial({color:0x11151b, roughness:.5}));
+pwr.position.set(6.8,.4,-2.8); gpu.add(pwr);
+const pinGeo = new THREE.CylinderGeometry(.05,.05,.1,8);
+const pins = new THREE.InstancedMesh(pinGeo, fingerMat, 12);
+for(let i=0;i<12;i++){ dummy.position.set(6.8+((i%4)-1.5)*.34, .68, -2.8+(Math.floor(i/4)-1)*.26); dummy.updateMatrix(); pins.setMatrixAt(i,dummy.matrix); }
+gpu.add(pins);
+
+const chokeMat = new THREE.MeshStandardMaterial({color:0x1a212b, roughness:.4, metalness:.7});
+const capMat = new THREE.MeshStandardMaterial({color:0x2a3442, roughness:.35, metalness:.85});
+for(let i=0;i<8;i++){ const ch=new THREE.Mesh(new THREE.CylinderGeometry(.26,.26,.38,14), chokeMat); ch.position.set(-7+i*.62,.31,-2.85); gpu.add(ch); }
+for(let i=0;i<12;i++){ const cp=new THREE.Mesh(new THREE.CylinderGeometry(.11,.11,.3,10), capMat); cp.position.set(-7+(i%6)*.5,.27,-2.15+Math.floor(i/6)*.45); gpu.add(cp); }
+
+const copper = new THREE.MeshStandardMaterial({color:0xc97e45, roughness:.28, metalness:.95});
+const hpDefs = [
+  [[1.7,.32,1.1],[3.4,.34,2.0],[5.6,.3,2.5],[7.3,.26,1.6]],
+  [[1.7,.32,-1.1],[3.4,.34,-2.0],[5.6,.3,-2.5],[7.3,.26,-1.6]],
+  [[-1.7,.32,1.1],[-3.4,.34,2.0],[-5.6,.3,2.5],[-7.3,.26,1.6]],
+  [[-1.7,.32,-1.1],[-3.4,.34,-2.0],[-5.6,.3,-2.5],[-7.3,.26,-1.6]]
+];
+for(const hp of hpDefs){
+  const curve = new THREE.CatmullRomCurve3(hp.map(p=>new THREE.Vector3(...p)));
+  gpu.add(new THREE.Mesh(new THREE.TubeGeometry(curve,32,.1,10), copper));
+}
+
+const vramMat = new THREE.MeshStandardMaterial({color:0x10151c, roughness:.4, metalness:.5, emissive:0x0a1c2c, emissiveIntensity:.35});
+for(const vx of [-4.6,-3.15,3.15,4.6]) for(const vz of [-1.35,1.35]){
+  const v=new THREE.Mesh(new THREE.BoxGeometry(1.15,.2,.95), vramMat); v.position.set(vx,.22,vz); gpu.add(v);
+}
+
+const dTex = dieTexture();
+const dieMat = new THREE.MeshStandardMaterial({map:dTex, emissiveMap:dTex, emissive:0x3ee6ff, emissiveIntensity:.55, roughness:.35, metalness:.6});
+const die = new THREE.Mesh(new THREE.BoxGeometry(3.6,.34,3.0), dieMat);
+die.position.y = .3; gpu.add(die);
+
+const hotGeo = new THREE.PlaneGeometry(.2,.2); hotGeo.rotateX(-Math.PI/2);
+const hotMat = new THREE.MeshBasicMaterial({color:0x3ee6ff, transparent:true, opacity:.85, blending:THREE.AdditiveBlending, depthWrite:false, side:THREE.DoubleSide});
+reg(hotMat, hotMats, .85);
+const hotMesh = new THREE.InstancedMesh(hotGeo, hotMat, 36);
+const hotData=[];
+for(let i=0;i<36;i++) hotData.push({x:(Math.random()-.5)*3.1, z:(Math.random()-.5)*2.5, ph:Math.random()*6.28, sp:1.5+Math.random()*3});
+gpu.add(hotMesh);
+
+const shroudMat = new THREE.MeshStandardMaterial({color:0x15181e, roughness:.35, metalness:.8});
+reg(shroudMat, shellMats, 1);
+const shroudMat2 = new THREE.MeshStandardMaterial({color:0x1b2028, roughness:.4, metalness:.75});
+reg(shroudMat2, shellMats, 1);
+const s1 = new THREE.Mesh(new THREE.BoxGeometry(15.4,1.1,7.2), shroudMat); s1.position.y=.67; shell.add(s1);
+const s2 = new THREE.Mesh(new THREE.BoxGeometry(14.6,.5,6.6), shroudMat2); s2.position.y=1.45; shell.add(s2);
+
+const bpMat = new THREE.MeshStandardMaterial({color:0x10141a, roughness:.4, metalness:.85});
+reg(bpMat, shellMats, 1);
+const bp = new THREE.Mesh(new THREE.BoxGeometry(15.8,.1,7.4), bpMat); bp.position.y=-.17; shell.add(bp);
+for(const sx of [-7.4,7.4]) for(const sz of [-3.3,3.3]){
+  const sc=new THREE.Mesh(new THREE.CylinderGeometry(.12,.12,.08,10), capMat); sc.position.set(sx,-.24,sz); shell.add(sc);
+}
+
+const rgbMat = new THREE.MeshStandardMaterial({color:0x05070a, emissive:0x3ee6ff, emissiveIntensity:2.2, roughness:.4});
+reg(rgbMat, shellMats, 1);
+const rgbStrip = new THREE.Mesh(new THREE.BoxGeometry(15,.12,.1), rgbMat);
+rgbStrip.position.set(0,.35,3.63); shell.add(rgbStrip);
+const logoMat = new THREE.MeshBasicMaterial({map:logoTexture(), transparent:true});
+reg(logoMat, shellMats, 1);
+const logo = new THREE.Mesh(new THREE.PlaneGeometry(6.4,.8), logoMat);
+logo.position.set(0,1.0,3.64); shell.add(logo);
+
+const fanPlateMat = new THREE.MeshStandardMaterial({color:0x0a0d12, roughness:.6});
+reg(fanPlateMat, shellMats, 1);
+const bladeMat = new THREE.MeshStandardMaterial({color:0x232a34, roughness:.45, metalness:.6});
+reg(bladeMat, shellMats, 1);
+const ringMat = new THREE.MeshStandardMaterial({color:0x1a2029, roughness:.4, metalness:.8});
+reg(ringMat, shellMats, 1);
+const hubMat = new THREE.MeshStandardMaterial({color:0x2a323e, roughness:.35, metalness:.85});
+reg(hubMat, shellMats, 1);
+const fans=[];
+for(const fx of [-4.9,0,4.9]){
+  const fg = new THREE.Group(); fg.position.set(fx,1.78,0);
+  const plate = new THREE.Mesh(new THREE.CylinderGeometry(1.82,1.82,.1,28), fanPlateMat); plate.position.y=-.08; fg.add(plate);
+  const ring = new THREE.Mesh(new THREE.TorusGeometry(1.78,.06,10,40), ringMat); ring.rotation.x=Math.PI/2; ring.position.y=.02; fg.add(ring);
+  const spin = new THREE.Group(); fg.add(spin);
+  const hub = new THREE.Mesh(new THREE.CylinderGeometry(.42,.42,.3,20), hubMat); spin.add(hub);
+  const bladeGeo = new THREE.BoxGeometry(1.45,.05,.4);
+  for(let b=0;b<9;b++){
+    const piv = new THREE.Group(); piv.rotation.y = b*Math.PI*2/9;
+    const bl = new THREE.Mesh(bladeGeo, bladeMat); bl.position.x=.95; bl.rotation.x=.5; piv.add(bl);
+    spin.add(piv);
+  }
+  shell.add(fg);
+  fans.push({spin, dir: fx===0?-1:1});
+}
+const gpuTag = labelSprite('ACELERADOR NEURAL · RTX-∞', '#3ee6ff', 2.6, shellMats);
+gpuTag.position.set(0,2.75,3.9); shell.add(gpuTag);
+
+const interiorLabels = [
+  ['DIE · 5 nm', 0, 1.25, 0],
+  ['VRAM GDDR6X', 4.1, .95, 1.5],
+  ['VRM · 16 FASES', -5.6, 1.05, -2.7],
+  ['HEATPIPES DE COBRE', 5.6, .95, -2.3]
+];
+for(const [tx,x,y,z] of interiorLabels){
+  const lb = labelSprite(tx, '#3ddc84', 1.7, hotMats);
+  lb.position.set(x,y,z); gpu.add(lb);
+}
+
+const sm = new THREE.Group(); sm.position.set(0,.55,0); sm.visible=false; gpu.add(sm);
+const smBase = new THREE.Mesh(new THREE.BoxGeometry(3.5,.12,2.9),
+  reg(new THREE.MeshStandardMaterial({color:0x0b1118, roughness:.4, metalness:.7}), smMats, 1));
+sm.add(smBase);
+
+const schedMat = reg(new THREE.MeshStandardMaterial({color:0x06222e, emissive:0x3ee6ff, emissiveIntensity:1.8, roughness:.4}), smMats, 1);
+const scheds=[];
+for(const sx of [-1.2,1.2]) for(const sz of [-.75,.75]){
+  const sc=new THREE.Mesh(new THREE.BoxGeometry(.55,.14,.55), schedMat); sc.position.set(sx,.14,sz); sm.add(sc); scheds.push(sc);
+}
+const regGeo = new THREE.BoxGeometry(.14,.08,.46);
+const regMat = reg(new THREE.MeshStandardMaterial({color:0x6b5320, emissive:0xffd166, emissiveIntensity:.7, roughness:.4, metalness:.6}), smMats, 1);
+const regs = new THREE.InstancedMesh(regGeo, regMat, 48);
+for(let i=0;i<48;i++){ dummy.position.set(((i%12)-5.5)*.245, .12, -.62+Math.floor(i/12)*.17); dummy.rotation.set(0,0,0); dummy.scale.setScalar(1); dummy.updateMatrix(); regs.setMatrixAt(i,dummy.matrix); }
+sm.add(regs);
+
+const cudaGeo = new THREE.BoxGeometry(.11,.11,.11);
+const cudaMat = reg(new THREE.MeshStandardMaterial({color:0x062a30, emissive:0x2dd4bf, emissiveIntensity:1.5, roughness:.4}), smMats, 1);
+const cuda = new THREE.InstancedMesh(cudaGeo, cudaMat, 96);
+const cudaData=[];
+for(let i=0;i<96;i++){
+  const col=i%24, row=Math.floor(i/24);
+  cudaData.push({x:(col-11.5)*.115, z:.55+row*.22, ph:Math.random()*6.28});
+}
+sm.add(cuda);
+
+const tcBlockMat = reg(new THREE.MeshStandardMaterial({color:0x2a0a18, emissive:0xff5c8a, emissiveIntensity:2.0, roughness:.35}), smMats, 1);
+const tcBlock = new THREE.Mesh(new THREE.BoxGeometry(.95,.5,.95), tcBlockMat);
+tcBlock.position.set(0,.32,.1); sm.add(tcBlock);
+
+const cacheMat = reg(new THREE.MeshStandardMaterial({color:0x0a2416, emissive:0x3ddc84, emissiveIntensity:.9, roughness:.45}), smMats, 1);
+const cache = new THREE.Mesh(new THREE.BoxGeometry(3.1,.14,.42), cacheMat);
+cache.position.set(0,.13,-1.15); sm.add(cache);
+
+const smBeamPts=[];
+for(const sx of [-1.2,1.2]) for(const sz of [-.75,.75]){ smBeamPts.push(sx,.2,sz, 0,.35,.1); }
+const smBeamGeo = new THREE.BufferGeometry();
+smBeamGeo.setAttribute('position', new THREE.Float32BufferAttribute(smBeamPts,3));
+const smBeamMat = reg(new THREE.LineBasicMaterial({color:0x3ee6ff, transparent:true, blending:THREE.AdditiveBlending, depthWrite:false}), smMats, .6);
+sm.add(new THREE.LineSegments(smBeamGeo, smBeamMat));
+
+const smLabels = [
+  ['SCHEDULER DE WARP', -1.2, .8, -.75],
+  ['REGISTOS · 64 KB', 0, .72, -.55],
+  ['CUDA FP32 ×128', 0, .78, .95],
+  ['TENSOR CORE · FP16', 0, 1.1, .1],
+  ['CACHE L1', 0, .68, -1.15]
+];
+for(const [tx,x,y,z] of smLabels){
+  const lb = labelSprite(tx, '#ffb454', 1.35, smMats);
+  lb.position.set(x,y,z); sm.add(lb);
+}
+
+const tensor = new THREE.Group(); tensor.position.set(0,.62,0); tensor.visible=false; sm.add(tensor);
+
+const cellA = new THREE.PlaneGeometry(.16,.16); cellA.rotateY(Math.PI/2);
+const cellB = new THREE.PlaneGeometry(.16,.16);
+const cellC = new THREE.PlaneGeometry(.16,.16); cellC.rotateX(-Math.PI/2);
+function gridMat(hex){ return reg(new THREE.MeshBasicMaterial({color:hex, transparent:true, opacity:.9, blending:THREE.AdditiveBlending, depthWrite:false, side:THREE.DoubleSide}), tensorMats, .9); }
+const matA = new THREE.InstancedMesh(cellA, gridMat(0x3ee6ff), 64);
+const matB = new THREE.InstancedMesh(cellB, gridMat(0xffb454), 64);
+const matC = new THREE.InstancedMesh(cellC, gridMat(0xff5c8a), 64);
+const sp=.19;
+for(let r=0;r<8;r++) for(let c=0;c<8;c++){
+  const i=r*8+c;
+  dummy.rotation.set(0,0,0); dummy.scale.setScalar(1);
+  dummy.position.set(-.85,(r-3.5)*sp,(c-3.5)*sp); dummy.updateMatrix(); matA.setMatrixAt(i,dummy.matrix);
+  dummy.position.set((c-3.5)*sp,(r-3.5)*sp,-.85); dummy.updateMatrix(); matB.setMatrixAt(i,dummy.matrix);
+  dummy.position.set((r-3.5)*sp,-.25,(c-3.5)*sp); dummy.updateMatrix(); matC.setMatrixAt(i,dummy.matrix);
+  tmpC.setScalar(.2); matA.setColorAt(i,tmpC); matB.setColorAt(i,tmpC); matC.setColorAt(i,tmpC);
+}
+tensor.add(matA, matB, matC);
+
+const beamPtsA=[], beamPtsB=[];
+for(let k=0;k<10;k++){
+  const i=Math.floor(Math.random()*8), j=Math.floor(Math.random()*8);
+  beamPtsA.push(-.85,(i-3.5)*sp,(Math.random()-.5)*1.3, (i-3.5)*sp,-.25,(j-3.5)*sp);
+  beamPtsB.push((Math.random()-.5)*1.3,(j-3.5)*sp,-.85, (i-3.5)*sp,-.25,(j-3.5)*sp);
+}
+const tBeamGeoA = new THREE.BufferGeometry(); tBeamGeoA.setAttribute('position', new THREE.Float32BufferAttribute(beamPtsA,3));
+const tBeamGeoB = new THREE.BufferGeometry(); tBeamGeoB.setAttribute('position', new THREE.Float32BufferAttribute(beamPtsB,3));
+const tBeamMatA = reg(new THREE.LineBasicMaterial({color:0x3ee6ff, transparent:true, blending:THREE.AdditiveBlending, depthWrite:false}), tensorMats, .5);
+const tBeamMatB = reg(new THREE.LineBasicMaterial({color:0xffb454, transparent:true, blending:THREE.AdditiveBlending, depthWrite:false}), tensorMats, .5);
+tensor.add(new THREE.LineSegments(tBeamGeoA,tBeamMatA), new THREE.LineSegments(tBeamGeoB,tBeamMatB));
+
+const scan = new THREE.Mesh(new THREE.BoxGeometry(.03,.5,1.5),
+  reg(new THREE.MeshBasicMaterial({color:0xff5c8a, transparent:true, blending:THREE.AdditiveBlending, depthWrite:false}), tensorMats, .55));
+scan.position.y=.05; tensor.add(scan);
+
+const tLabels = [
+  ['MATRIZ A · FP16', '#3ee6ff', -.85, 1.0, 0],
+  ['MATRIZ B · FP16', '#ffb454', 0, 1.0, -.85],
+  ['ACUMULADOR C · FP32', '#ff5c8a', 0, .1, 1.05]
+];
+for(const [tx,cl,x,y,z] of tLabels){
+  const lb = labelSprite(tx, cl, 1.3, tensorMats);
+  lb.position.set(x,y,z); tensor.add(lb);
+}
+
+const pipe = new THREE.Group(); scene.add(pipe);
+const Y = 6.45;
+
+const tokWords = ['O','gato','preto','[MASK]'];
+const tokMat = reg(new THREE.MeshStandardMaterial({color:0x06222e, emissive:0x3ee6ff, emissiveIntensity:1.5, roughness:.4}), pipeMats, 1);
+const tokWire = reg(new THREE.MeshBasicMaterial({color:0xff5c8a, wireframe:true}), pipeMats, .9);
+const tokCubeGeo = new THREE.BoxGeometry(.5,.5,.5);
+tokWords.forEach((w,i)=>{
+  const m = new THREE.Mesh(tokCubeGeo, i===3?tokWire:tokMat);
+  m.position.set(-9.2, Y, (i-1.5)*.85); pipe.add(m);
+  const ws = wordSprite(w, i===3?'#ff5c8a':'#7deeff', pipeMats);
+  ws.position.set(-9.2, Y+.75, (i-1.5)*.85); pipe.add(ws);
+});
+
+const embedSlab = new THREE.Mesh(new THREE.PlaneGeometry(2.3,3.1),
+  reg(new THREE.MeshBasicMaterial({map:embedTexture(), transparent:true, side:THREE.DoubleSide, depthWrite:false}), pipeMats, .95));
+embedSlab.position.set(-6.2,Y,0); pipe.add(embedSlab);
+const posGroup = new THREE.Group(); posGroup.position.set(-6.2,Y,0); pipe.add(posGroup);
+const posRing = new THREE.Mesh(new THREE.TorusGeometry(1.2,.045,10,48),
+  reg(new THREE.MeshStandardMaterial({color:0x0a2416, emissive:0x3ddc84, emissiveIntensity:1.6, roughness:.4}), pipeMats, 1));
+posRing.rotation.x = Math.PI/2; posGroup.add(posRing);
+
+const headMat = reg(new THREE.MeshStandardMaterial({color:0x201505, emissive:0xffb454, emissiveIntensity:1.7, roughness:.4}), pipeMats, 1);
+const ffnMat = reg(new THREE.MeshStandardMaterial({color:0x062a30, emissive:0x2dd4bf, emissiveIntensity:.9, roughness:.5}), pipeMats, 1);
+const boxFillMat = reg(new THREE.MeshStandardMaterial({color:0x0d2436, transparent:true, opacity:.08, roughness:.6}), pipeMats, .08);
+const edgeMat = reg(new THREE.LineBasicMaterial({color:0x3ee6ff, transparent:true}), pipeMats, .45);
+const resMat = reg(new THREE.MeshBasicMaterial({color:0x3ddc84, transparent:true, blending:THREE.AdditiveBlending, depthWrite:false}), pipeMats, .35);
+const headGeo = new THREE.SphereGeometry(.085,10,10);
+const attnBeams=[], resDots=[], blockXs=[-2.6,.4,3.4];
+for(let bi=0; bi<3; bi++){
+  const bx = blockXs[bi];
+  const box = new THREE.Mesh(new THREE.BoxGeometry(2.3,2.8,2.3), boxFillMat);
+  box.position.set(bx,Y+.05,0); pipe.add(box);
+  const edges = new THREE.LineSegments(new THREE.EdgesGeometry(box.geometry), edgeMat);
+  edges.position.copy(box.position); pipe.add(edges);
+  const heads=[];
+  for(let r=0;r<4;r++) for(let c=0;c<4;c++){
+    const h = new THREE.Mesh(headGeo, headMat);
+    h.position.set(bx+(c-1.5)*.44, Y+(r-1.5)*.44, .62);
+    pipe.add(h); heads.push(h.position);
+  }
+  for(let k=0;k<8;k++){
+    const a = heads[(k*5+bi)%16], b = heads[(k*7+3+bi)%16];
+    const g = new THREE.BufferGeometry().setFromPoints([a,b]);
+    const m = reg(new THREE.LineBasicMaterial({color:0xffb454, transparent:true, blending:THREE.AdditiveBlending, depthWrite:false}), pipeMats, .7);
+    pipe.add(new THREE.Line(g,m));
+    attnBeams.push({mat:m, ph: bi*1.7+k*.9});
+  }
+  const ffn = new THREE.Mesh(new THREE.BoxGeometry(1.9,2.3,.14), ffnMat);
+  ffn.position.set(bx,Y+.05,-.72); pipe.add(ffn);
+  const loopPts=[];
+  for(let a=0;a<=12;a++){ const th=a/12*Math.PI*2; loopPts.push(new THREE.Vector3(bx+Math.cos(th)*1.5, Y+.05+Math.sin(th)*1.75, 0)); }
+  const loopCurve = new THREE.CatmullRomCurve3(loopPts,true);
+  pipe.add(new THREE.Mesh(new THREE.TubeGeometry(loopCurve,48,.028,8,true), resMat));
+  const rd = new THREE.Mesh(new THREE.SphereGeometry(.07,8,8),
+    reg(new THREE.MeshBasicMaterial({color:0x3ddc84, transparent:true, blending:THREE.AdditiveBlending, depthWrite:false}), pipeMats, .95));
+  pipe.add(rd); resDots.push({mesh:rd, curve:loopCurve, off:bi*.33});
+}
+
+const logitBase=[.55,.85,1.55,.65,.45,.75];
+const barGeo = new THREE.BoxGeometry(.3,1,.3); barGeo.translate(0,.5,0);
+const barCyan = reg(new THREE.MeshStandardMaterial({color:0x06222e, emissive:0x3ee6ff, emissiveIntensity:1.1, roughness:.4}), pipeMats, 1);
+const barMag = reg(new THREE.MeshStandardMaterial({color:0x2a0a18, emissive:0xff5c8a, emissiveIntensity:1.9, roughness:.4}), pipeMats, 1);
+const logitBars=[];
+for(let i=0;i<6;i++){
+  const b = new THREE.Mesh(barGeo, i===2?barMag:barCyan);
+  b.position.set(6.8+(i-2.5)*.42, 5.7, 0);
+  pipe.add(b); logitBars.push(b);
+}
+const outCube = new THREE.Mesh(new THREE.BoxGeometry(.55,.55,.55),
+  reg(new THREE.MeshStandardMaterial({color:0x2a0a18, emissive:0xff5c8a, emissiveIntensity:1.8, roughness:.35}), pipeMats, 1));
+outCube.position.set(9.2,Y,0); pipe.add(outCube);
+const outWord = wordSprite('senta.', '#ff8fb0', pipeMats);
+outWord.position.set(9.2, Y+.8, 0); pipe.add(outWord);
+
+const pipeLabels = [
+  ['TOKENS DE ENTRADA', -9.2], ['EMBEDDING + POSIÇÃO', -6.2],
+  ['BLOCOS TRANSFORMER ×32', .4], ['CABEÇA LM · SOFTMAX', 6.8], ['SAÍDA PREVISTA', 9.2]
+];
+for(const [tx,x] of pipeLabels){
+  const lb = labelSprite(tx, '#3ee6ff', 2.1, pipeMats);
+  lb.position.set(x, 8.45, 0); pipe.add(lb);
+}
+
+const guideCurve = new THREE.CatmullRomCurve3([
+  new THREE.Vector3(-9.2,Y,0), new THREE.Vector3(-6.2,Y,.45),
+  new THREE.Vector3(-2.6,Y+.1,-.3), new THREE.Vector3(.4,Y+.1,.3),
+  new THREE.Vector3(3.4,Y+.1,-.3), new THREE.Vector3(6.8,Y-.1,0),
+  new THREE.Vector3(9.2,Y,0)
+]);
+const guide = new THREE.Mesh(new THREE.TubeGeometry(guideCurve,200,.035,8),
+  reg(new THREE.MeshBasicMaterial({color:0x3ee6ff, transparent:true, blending:THREE.AdditiveBlending, depthWrite:false}), pipeMats, .16));
+pipe.add(guide);
+
+const cCy=new THREE.Color(0x3ee6ff), cAm=new THREE.Color(0xffb454), cMg=new THREE.Color(0xff5c8a);
+const pulses=[];
+for(let i=0;i<14;i++){
+  const m = new THREE.Mesh(new THREE.SphereGeometry(.09,10,10),
+    reg(new THREE.MeshBasicMaterial({color:0x3ee6ff, transparent:true, blending:THREE.AdditiveBlending, depthWrite:false}), pulseMats, .95));
+  pipe.add(m);
+  pulses.push({mesh:m, off:i/14});
+}
+
+const $ = id => document.getElementById(id);
+const zoomPctEl=$('zoomPct'), zoomFill=$('zoomFill'), lvlName=$('lvlName'), toastEl=$('toast');
+const stTok=$('stTok'), stFlo=$('stFlo'), stTmp=$('stTmp'), stUti=$('stUti');
+const sbTok=$('sbTok'), sbFlo=$('sbFlo'), sbTmp=$('sbTmp'), sbUti=$('sbUti');
+const chips=[...document.querySelectorAll('.chip')];
+const stages=[...document.querySelectorAll('.stage')].map(el=>({bar:el.querySelector('.sbar div'), val:el.querySelector('b')}));
+
+let toastTimer=null;
+function showToast(html){
+  toastEl.innerHTML = '⬢ &nbsp;'+html;
+  toastEl.classList.add('show');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(()=>toastEl.classList.remove('show'), 3400);
+}
+
+let tw=null;
+function startTween(toP,toT,dur){
+  tw = {t:0, dur:dur||1.3, fromP:camera.position.clone(), fromT:controls.target.clone(), toP:toP.clone(), toT:toT.clone()};
+  controls.enabled = false;
+}
+function flyToDist(d){
+  const off = camera.position.clone().sub(controls.target);
+  off.setLength(d);
+  startTween(controls.target.clone().add(off), controls.target.clone(), 1.25);
+}
+controls.addEventListener('start', ()=>{ if(tw){ tw=null; controls.enabled=true; } });
+
+chips.forEach((c,i)=>c.addEventListener('click', ()=>flyToDist(parseFloat(c.dataset.dist))));
+const btnAuto=$('btnAuto'), btnReset=$('btnReset');
+btnAuto.addEventListener('click', ()=>{
+  controls.autoRotate = !controls.autoRotate;
+  btnAuto.classList.toggle('active', controls.autoRotate);
+});
+btnReset.addEventListener('click', ()=>startTween(DEFAULT_POS, TARGET0, 1.5));
+addEventListener('keydown', e=>{
+  const k=e.key.toLowerCase();
+  if(k>='1'&&k<='4') flyToDist(parseFloat(chips[+k-1].dataset.dist));
+  else if(k==='a') btnAuto.click();
+  else if(k==='r') btnReset.click();
+});
+renderer.domElement.addEventListener('pointerdown', ()=>document.body.classList.add('dragging'));
+addEventListener('pointerup', ()=>document.body.classList.remove('dragging'));
+addEventListener('resize', ()=>{
+  camera.aspect = innerWidth/innerHeight; camera.updateProjectionMatrix();
+  renderer.setSize(innerWidth,innerHeight);
+  composer.setSize(innerWidth,innerHeight);
+});
+
+const clock = new THREE.Clock();
+let r1=0, r2=0, r3=0, curLevel=-1, hudAcc=0;
+const segBounds=[0,.14,.32,.52,.7,.86,1];
+const FLO_BASE=[82.4,82.4,.64,.19];
+
+startTween(DEFAULT_POS, TARGET0, 2.2);
+
+function animate(){
+  requestAnimationFrame(animate);
+  const dt = Math.min(clock.getDelta(), .05);
+  const t = clock.elapsedTime;
+
+  if(tw){
+    tw.t += dt;
+    const k = easeIOC(Math.min(1, tw.t/tw.dur));
+    camera.position.lerpVectors(tw.fromP, tw.toP, k);
+    controls.target.lerpVectors(tw.fromT, tw.toT, k);
+    camera.lookAt(controls.target);
+    if(tw.t>=tw.dur){ tw=null; controls.enabled=true; }
+  } else {
+    controls.update();
+  }
+
+  const dist = camera.position.distanceTo(controls.target);
+  const zoom = D0/dist*100;
+  const level = zoom>=400?3 : zoom>=220?2 : zoom>=125?1 : 0;
+
+  r1 = THREE.MathUtils.damp(r1, smooth01((zoom-118)/16), 5, dt);
+  r2 = THREE.MathUtils.damp(r2, smooth01((zoom-205)/30), 5, dt);
+  r3 = THREE.MathUtils.damp(r3, smooth01((zoom-375)/50), 5, dt);
+
+  shell.visible = r1 < .98;
+  fadeArr(shellMats, 1-r1, .55);
+  fadeArr(hotMats, r1*(1-r2));
+  const pd = 1 - .5*r2;
+  fadeArr(pipeMats, pd);
+  fadeArr(pulseMats, pd);
+
+  sm.visible = r2 > .02;
+  const s2 = .35 + .65*easeOC(r2);
+  sm.scale.setScalar(s2);
+  sm.position.y = .3 + .3*r2;
+  fadeArr(smMats, r2*(1-.85*r3));
+
+  tensor.visible = r3 > .02;
+  tensor.scale.setScalar(Math.max(.001, r3));
+  fadeArr(tensorMats, r3);
+
+  bloomPass.strength = .5 + .28*r2 + .15*r3;
+
+  const load = .5 + .5*Math.sin(t*.5);
+  for(const f of fans) f.spin.rotation.y += dt * (5 + load*9) * f.dir;
+  rgbMat.emissive.setHSL((t*.06)%1, .85, .55);
+  dieMat.emissiveIntensity = .45 + load*.7 + r1*.3;
+  tcBlock.scale.setScalar(1 + .06*Math.sin(t*4));
+  tcBlockMat.emissiveIntensity = 1.6 + Math.sin(t*4)*.7;
+
+  for(let i=0;i<36;i++){
+    const h = hotData[i], s = .5+.5*Math.sin(t*h.sp+h.ph);
+    dummy.position.set(h.x,.5,h.z); dummy.rotation.set(0,t*.4+h.ph,0);
+    dummy.scale.setScalar(.35+.95*s); dummy.updateMatrix();
+    hotMesh.setMatrixAt(i,dummy.matrix);
+  }
+  hotMesh.instanceMatrix.needsUpdate = true;
+
+  for(let i=0;i<96;i++){
+    const cd = cudaData[i];
+    const fl = Math.max(0, Math.sin(t*4+cd.ph)); 
+    dummy.position.set(cd.x,.13,cd.z); dummy.rotation.set(0,0,0);
+    dummy.scale.setScalar(.65+.55*fl*fl); dummy.updateMatrix();
+    cuda.setMatrixAt(i,dummy.matrix);
+  }
+  cuda.instanceMatrix.needsUpdate = true;
+
+  if(r3>.02){
+    for(let r=0;r<8;r++) for(let c=0;c<8;c++){
+      const i=r*8+c;
+      const wa = .25+.75*Math.max(0,Math.sin(t*3 - r*.7));
+      const wb = .25+.75*Math.max(0,Math.sin(t*3 - c*.7 + 1.2));
+      const wc = .2+.8*Math.max(0,Math.sin(t*2.2 - (r+c)*.55));
+      tmpC.setRGB(.24*wa,.88*wa,wa); matA.setColorAt(i,tmpC);
+      tmpC.setRGB(wb,.7*wb,.33*wb); matB.setColorAt(i,tmpC);
+      tmpC.setRGB(wc,.36*wc,.54*wc); matC.setColorAt(i,tmpC);
+    }
+    matA.instanceColor.needsUpdate = true;
+    matB.instanceColor.needsUpdate = true;
+    matC.instanceColor.needsUpdate = true;
+    tBeamMatA.opacity = tBeamMatA.userData.baseOp*r3*(.4+.6*Math.abs(Math.sin(t*2.6)));
+    tBeamMatB.opacity = tBeamMatB.userData.baseOp*r3*(.4+.6*Math.abs(Math.cos(t*2.6)));
+    scan.position.x = -.75 + 1.5*((t*.45)%1);
+  }
+
+  posGroup.rotation.y = t*.6;
+  for(const ab of attnBeams) ab.mat.opacity = ab.mat.userData.baseOp*pd*(.12+.6*Math.pow(Math.max(0,Math.sin(t*3+ab.ph)),2));
+  for(const rd of resDots){
+    const u=(t*.2+rd.off)%1;
+    rd.curve.getPoint(u, rd.mesh.position);
+  }
+  logitBars.forEach((b,i)=>{
+    const h = logitBase[i] + .18*Math.sin(t*2.4+i*1.3) + (i===2?.25*Math.abs(Math.sin(t*3.2)):0);
+    b.scale.y = h;
+  });
+  let minDu=1;
+  for(const p of pulses){
+    const u = (t*.055 + p.off)%1;
+    guideCurve.getPoint(u, p.mesh.position);
+    if(u<.45) p.mesh.material.color.lerpColors(cCy,cAm,u/.45);
+    else p.mesh.material.color.lerpColors(cAm,cMg,(u-.45)/.55);
+    const sc = .8 + .5*Math.sin(t*6+p.off*20);
+    p.mesh.scale.setScalar(sc);
+    minDu = Math.min(minDu, 1-u);
+  }
+  const kick = 1 + .45*Math.exp(-Math.pow(minDu/.05,2));
+  outCube.scale.setScalar(kick);
+  outCube.rotation.y = t*.8;
+
+  dust.rotation.y += dt*.008;
+
+  zoomPctEl.textContent = Math.round(zoom);
+  zoomFill.style.width = (Math.min(zoom,1000)/10)+'%';
+  if(level!==curLevel){
+    if(level>curLevel && level>0) showToast(TOASTS[level]);
+    curLevel = level;
+    lvlName.textContent = LVLNAMES[level];
+    lvlName.className = 'lvl-chip' + (level>0?' l'+level:'');
+    chips.forEach((c,i)=>c.classList.toggle('active', i===level));
+  }
+
+  hudAcc += dt;
+  if(hudAcc > .12){
+    hudAcc = 0;
+    const tokens = Math.round(1520 + 430*load + 120*Math.sin(t*2.1));
+    const flo = FLO_BASE[level]*(0.92+0.16*load);
+    const temp = 56 + 10*load + level*1.8;
+    const util = 74 + 22*load;
+    stTok.textContent = tokens.toLocaleString('pt-BR');
+    stFlo.textContent = level<2 ? flo.toFixed(1) : flo.toFixed(2);
+    stTmp.textContent = temp.toFixed(0)+'°C';
+    stUti.textContent = util.toFixed(0)+'%';
+    sbTok.style.width = Math.min(100,Math.max(8,(tokens-1300)/8))+'%';
+    sbFlo.style.width = [92,92,70,56][level]+'%';
+    sbTmp.style.width = Math.min(100,(temp-50)*3)+'%';
+    sbUti.style.width = util+'%';
+
+    const counts=[0,0,0,0,0,0];
+    for(const p of pulses){
+      const u=(t*.055+p.off)%1;
+      for(let sIdx=0;sIdx<6;sIdx++) if(u>=segBounds[sIdx] && u<segBounds[sIdx+1]){ counts[sIdx]++; break; }
+    }
+    stages.forEach((st,sIdx)=>{
+      const v = Math.min(100, Math.max(5, 30+38*(.5+.5*Math.sin(t*1.8+sIdx*1.1)) + counts[sIdx]*24));
+      st.bar.style.width = v+'%';
+      st.val.textContent = Math.round(v)+'%';
+    });
+  }
+
+  composer.render();
+}
+animate();
+}
+
+main();
+</script>
+
+<!-- SCRIPTS ADICIONAIS -->
+<script>
+// Animação dos cards de serviço no scroll
+const observerOptions = {
+  threshold: 0.1,
+  rootMargin: '0px 0px -50px 0px'
+};
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry, index) => {
+    if (entry.isIntersecting) {
+      setTimeout(() => {
+        entry.target.classList.add('visible');
+      }, index * 100);
+    }
+  });
+}, observerOptions);
+
+document.querySelectorAll('.service-card').forEach(card => {
+  observer.observe(card);
+});
+
+// Botão voltar ao topo
+const backToTop = document.getElementById('backToTop');
+
+window.addEventListener('scroll', () => {
+  if (window.pageYOffset > 300) {
+    backToTop.classList.add('visible');
+  } else {
+    backToTop.classList.remove('visible');
+  }
+});
+
+backToTop.addEventListener('click', () => {
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth'
+  });
+});
+
+// Esconder seta de scroll após rolar
+const scrollIndicator = document.querySelector('.scroll-indicator');
+let scrollIndicatorHidden = false;
+
+window.addEventListener('scroll', () => {
+  if (window.pageYOffset > 100 && !scrollIndicatorHidden) {
+    scrollIndicator.style.opacity = '0';
+    scrollIndicator.style.transition = 'opacity 0.5s';
+    scrollIndicatorHidden = true;
+  }
+});
+</script>
+
+</body>
+</html>
