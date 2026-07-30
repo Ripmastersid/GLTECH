@@ -750,9 +750,59 @@ footer p{color:var(--mut);font-size:13px;margin-bottom:8px}
     Traçar Rota no Google Maps
   </a>
   
-  <p style="color: var(--mut); margin-top: 15px; font-size: 12px;">
-    <span style="color: var(--gn);">●</span> Aberto agora · Fecha às 18:00
-  </p>
+   <p style="color: var(--mut); margin-top: 15px; font-size: 12px;">
+  <span id="status-loja" style="color: var(--gn);">●</span>
+  <span id="texto-status">Verificando...</span>
+</p>
+
+<script>
+function verificarStatusLoja() {
+  const agora = new Date();
+  const diaSemana = agora.getDay();
+  const hora = agora.getHours();
+  const minuto = agora.getMinutes();
+  const horarioAtual = hora + (minuto / 60);
+  
+  const statusSpan = document.getElementById('status-loja');
+  const textoSpan = document.getElementById('texto-status');
+  
+  let aberto = false;
+  let mensagem = '';
+  
+  if (diaSemana >= 1 && diaSemana <= 5) {
+    if (horarioAtual >= 9 && horarioAtual < 18) {
+      aberto = true;
+      mensagem = 'Aberto agora · Fecha às 18:00';
+    } else if (horarioAtual < 9) {
+      mensagem = 'Fechado · Abre às 09:00';
+    } else {
+      mensagem = 'Fechado · Abre amanhã às 09:00';
+    }
+  } else if (diaSemana === 6) {
+    if (horarioAtual >= 9 && horarioAtual < 13) {
+      aberto = true;
+      mensagem = 'Aberto agora · Fecha às 13:00';
+    } else if (horarioAtual < 9) {
+      mensagem = 'Fechado · Abre às 09:00';
+    } else {
+      mensagem = 'Fechado · Abre segunda às 09:00';
+    }
+  } else {
+    mensagem = 'Fechado · Abre segunda às 09:00';
+  }
+  
+  if (aberto) {
+    statusSpan.style.color = 'var(--gn)';
+  } else {
+    statusSpan.style.color = 'var(--mg)';
+  }
+  
+  textoSpan.textContent = mensagem;
+}
+
+verificarStatusLoja();
+setInterval(verificarStatusLoja, 60000);
+</script>
   
   </div>
         </div>
